@@ -1,0 +1,57 @@
+[Q1] Explain implicit blocks with an example.
+
+[Ans] Block is a part of code that is defined within a function or any braces. In implicit block we do not call anything from outside.
+The block itself yield a result which is returned or displayed.
+
+def impli_block
+    p "method block"
+    yield
+end
+
+impli_block{
+    p "block"
+}
+
+The output of the program will 
+mthod block
+block
+
+Since we can call the above method by using the impli_block itself hence it is implicit block.
+
+
+
+
+[Q] Write a code where a proc is passed as an argument to the method.
+
+[Ans]
+def method_callproc(proc)
+  proc.call(5)
+end
+ 
+proc = Proc.new { |i| puts "#{i}" }
+method_callproc(proc)
+
+Here the output will be 5 since the proc takes the value 5 and passes it to print it
+
+
+[Q] Differentiate between blocks, procs, and lambdas.
+
+[Ans]
+
+Block 
+
+block is part of code that are present inside a function method or any other, blockscan be called multiple times
+blocks can be passed implicitly as well as explicitly through a method. Yield is used to execute a block multiple times.
+
+
+Proc
+
+proc consist of a block of code that can be passed and stored in a variable, they are passed in a block. proc is generally
+passed explicitly.
+In proc the return statement acts as a terminator to the parent function also. On return the current scope gets returned
+
+lambdas
+
+They are like procs as they need arguments to be passed when they are called. But they behave as normal methods and 
+the return statement acts like the return of method . if a argument less lambda is called by passing argument to the lambda 
+then it raises error or exeption.
